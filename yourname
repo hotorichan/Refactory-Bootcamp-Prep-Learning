@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+echo Hello, what is your name? 
+read yourname
+echo Hello $yourname - good to see you!

@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'youtube-dl==2019.1.17','console_scripts','youtube-dl'
+__requires__ = 'youtube-dl==2019.1.17'
+import re
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('youtube-dl==2019.1.17', 'console_scripts', 'youtube-dl')()
+    )
+
+diff --git a/youtube_dl/InfoExtractors.py b/youtube_dl/InfoExtractors.py
+index baf859e..01ec034 100644
+--- a/youtube_dl/InfoExtractors.py
++++ b/youtube_dl/InfoExtractors.py
+@@ -2357,7 +2357,7 @@ class XVideosIE(InfoExtractor):
+
+
+        # Extract video thumbnail
+-       mobj = re.search(r'http://(?:img.*?\.)xvideos.com/videos/thumbs/[a-fA-F0-9]/[a-fA-F0-9]/[a-fA-F0-9]/([a-fA-F0-9.]+jpg)', webpage)
++       mobj = re.search(r'http://(?:img.*?\.)xvideos.com/videos/thumbs/[a-fA-F0-9]+/[a-fA-F0-9]+/[a-fA-F0-9]+/[a-fA-F0-9]+/([a-fA-F0-9.]+jpg)', webpage)
+        if mobj is None:
+            self._downloader.trouble(u'ERROR: unable to extract video thumbnail')
+            return
